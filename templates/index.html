@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro E-Market</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-section="home"><i class="fas fa-seedling me-2 text-success"></i>Agro
+                E-Market</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" data-section="home"><i class="fas fa-house me-2"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-section="agro-market"><i class="fas fa-basket-shopping me-2"></i>E-Market</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home-section" class="app-section">
+            <div class="hero-section">
+                <div class="container">
+                    <div class="row align-items-center g-5 text-start">
+                        <div class="col-lg-7 text-center text-lg-start">
+                            <div class="hero-badge">
+                                <i class="fas fa-bolt me-1"></i> Pan-India Express Delivery
+                            </div>
+                            <h1 class="display-3 fw-bold mb-3 text-white">Fresh Fruits & <span class="text-gradient">Vegetables</span></h1>
+                            <p class="lead mb-4 text-white-50">Direct from farm to your kitchen. Get premium quality agricultural produce at unbeatable wholesale prices with super-fast delivery all across India.</p>
+
+                        </div>
+                        <div class="col-lg-5 text-center position-relative d-none d-lg-block">
+                            <div class="hero-image-container">
+                                <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?q=80&w=2070&auto=format&fit=crop" alt="Fresh Farm Vegetables" class="img-fluid rounded-4 shadow-lg border border-2 border-success-subtle" style="max-height: 380px; object-fit: cover;">
+                                <div class="floating-glass-card shadow-lg p-3 rounded-3 text-start">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="pulse-icon bg-success text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold text-white">Direct Sourced</h6>
+                                            <small class="text-white-50">100% Indian Farmers</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SaaS-level Value Propositions -->
+            <div class="container mt-5 py-5" id="value-props-container">
+                <h2 class="text-center mb-5 fw-bold">🌾 Direct-From-Farm Benefits</h2>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <div class="value-card w-100">
+                            <div class="value-icon"><i class="fas fa-apple-whole"></i></div>
+                            <h3 class="value-title">100% Farm Fresh</h3>
+                            <p class="value-text">Picked daily and directly sourced from local fields. Experience rich,
+                                natural flavor and nutritional value delivered directly to your doorstep.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <div class="value-card w-100">
+                            <div class="value-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                            <h3 class="value-title">Unbeatable Low Prices</h3>
+                            <p class="value-text">Zero middleman margins. We connect you directly to the grower network,
+                                offering authentic wholesale prices that maximize your savings.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <div class="value-card w-100">
+                            <div class="value-icon"><i class="fas fa-truck-fast"></i></div>
+                            <h3 class="value-title">Fast Pan-India Delivery</h3>
+                            <p class="value-text">Express temperature-controlled shipping to preserve freshness. Rapid
+                                dispatch and real-time tracking to any address in India.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQs Section -->
+            <div class="container py-5 mt-5 border-top">
+                <h2 class="text-center mb-5 fw-bold">🙋 Frequently Asked Questions</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion accordion-flush" id="faqAccordion">
+                            <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden bg-white">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        How do you ensure fruits & vegetables are fresh?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        We procure produce daily directly from local Indian fields. They are packed in climate-controlled environments and shipped using express logistics to maintain peak freshness.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden bg-white">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Why are prices lower than traditional markets?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        By cutting out traditional distributors, wholesalers, and retail store markups, we connect farmers directly to consumers. This reduces costs by up to 30%, which we pass on to you.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border rounded-3 mb-3 shadow-sm overflow-hidden bg-white">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        Which areas do you deliver to?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        We deliver fresh produce across India, including all tier-1, tier-2, and major tier-3 cities. Check delivery times for your location when saving your address details.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden placeholder for JS script grid compatibility -->
+            <div id="module-grid" class="d-none"></div>
+        </section>
+
+        <section id="agro-market-section" class="container app-section d-none">
+            <div class="d-flex justify-content-between align-items-center my-4">
+                <h2 class="text-center mb-0">🛒 Agro E-Market</h2>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">View
+                    Cart <span class="badge bg-light text-dark ms-1" id="cart-count">0</span></button>
+            </div>
+            <div class="row" id="product-grid"></div>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Agro E-Market. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Options Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-credit-card me-2"></i>Select Payment Method</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-3 mb-4">
+                        <button class="btn btn-outline-success p-3 text-start d-flex align-items-center justify-content-between" id="payOnlineBtn">
+                            <div>
+                                <h6 class="mb-1"><i class="fab fa-google-pay fa-2x me-2 align-middle"></i>Online Payment (GPay/UPI)</h6>
+                                <small class="text-muted">Scan QR to pay instantly and securely</small>
+                            </div>
+                            <i class="fas fa-chevron-right text-success"></i>
+                        </button>
+                        <button class="btn btn-outline-dark p-3 text-start d-flex align-items-center justify-content-between" id="payCodBtn">
+                            <div>
+                                <h6 class="mb-1"><i class="fas fa-money-bill-wave fa-lg me-2 align-middle"></i>Cash on Delivery (COD)</h6>
+                                <small class="text-muted">Pay in cash when your order arrives</small>
+                            </div>
+                            <i class="fas fa-chevron-right text-dark"></i>
+                        </button>
+                    </div>
+
+                    <!-- QR Display Section -->
+                    <div id="qrContainer" class="text-center p-3 border rounded bg-light d-none">
+                        <h6 class="fw-bold mb-3">Scan with GPay or any UPI App to Pay</h6>
+                        <img src="{{ url_for('static', filename='gpay_qr.png') }}" alt="GPay QR Code" class="img-fluid border rounded shadow-sm mb-2" style="max-width: 220px;">
+                        <p class="text-monospace text-muted mb-0 small">UPI ID: achaiyanachaiyan-2@okhdfcbank</p>
+                        <button class="btn btn-success w-100 mt-3" id="qrPaidBtn">I Have Paid - Proceed <i class="fas fa-check-circle ms-1"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Address Form Modal -->
+    <div class="modal fade" id="deliveryModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-map-location-dot me-2"></i>Enter Delivery Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="deliveryForm">
+                        <div class="mb-3">
+                            <label for="deliveryName" class="form-label fw-bold">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="deliveryName" placeholder="e.g., Aravinth Raj" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deliveryPhone" class="form-label fw-bold">Phone Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="tel" class="form-control" id="deliveryPhone" placeholder="e.g., 9876543210" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deliveryWhatsapp" class="form-label fw-bold">WhatsApp Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fab fa-whatsapp"></i></span>
+                                <input type="tel" class="form-control" id="deliveryWhatsapp" placeholder="e.g., 9876543210" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deliveryAddress" class="form-label fw-bold">Delivery Address</label>
+                            <textarea class="form-control" id="deliveryAddress" rows="3" placeholder="Flat/House No., Building, Street Name" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deliveryLandmark" class="form-label fw-bold">Landmark</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                <input type="text" class="form-control" id="deliveryLandmark" placeholder="Near post office, school, etc." required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 mt-2">Generate Invoice & Complete Order <i class="fas fa-arrow-right ms-1"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div class="modal fade" id="invoiceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-file-invoice-dollar me-2"></i>Order Invoice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Invoice Document Wrapper for Print/PDF -->
+                    <div id="invoiceContent" class="p-4 border rounded bg-white">
+                        <div class="row mb-4">
+                            <div class="col-sm-6">
+                                <h3 class="fw-bold text-success mb-1">AGRO E-MARKET</h3>
+                                <p class="text-muted small mb-0">Premium Fresh Produce Direct from Farms</p>
+                            </div>
+                            <div class="col-sm-6 text-sm-end mt-3 mt-sm-0">
+                                <h5 class="fw-bold text-uppercase mb-1">Invoice</h5>
+                                <p class="mb-1 text-muted small"><strong>Invoice No:</strong> <span id="invoiceNo">#INV-98242</span></p>
+                                <p class="mb-0 text-muted small"><strong>Date:</strong> <span id="invoiceDate">2026-06-20</span></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mb-4">
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold mb-2">Billing Details:</h6>
+                                <p class="mb-1 fw-bold text-dark" id="billName">Aravinth Raj</p>
+                                <p class="mb-1 text-muted small" id="billPhone">Phone: 9876543210</p>
+                                <p class="mb-0 text-muted small" id="billWhatsapp">WhatsApp: 9876543210</p>
+                            </div>
+                            <div class="col-sm-6 text-sm-end mt-3 mt-sm-0">
+                                <h6 class="fw-bold mb-2">Delivery Destination:</h6>
+                                <p class="mb-1 text-muted small" id="billAddress">No. 12, Agro Street</p>
+                                <p class="mb-0 text-muted small"><strong>Landmark:</strong> <span id="billLandmark">Near Main Post Office</span></p>
+                                <p class="mb-0 text-muted small"><strong>Payment Mode:</strong> <span id="billPaymentMode" class="badge bg-success">COD</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Invoice Item Table -->
+                        <div class="table-responsive mb-4">
+                            <table class="table table-bordered table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th class="text-center">Rate</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-end">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="invoiceTableBody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="3" class="text-end">Total Amount:</th>
+                                        <th class="text-end text-success fs-5" id="invoiceTotal">₹0.00</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="alert alert-success py-2 text-center mb-0" role="alert">
+                            <i class="fas fa-handshake me-2"></i> Thank you for shopping with Agro E-Market! Sourced locally, consumed fresh.
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between gap-3 mt-4 flex-wrap">
+                        <button class="btn btn-outline-danger" id="downloadPdfBtn"><i class="fas fa-file-pdf me-2"></i>Download PDF</button>
+                        <button class="btn btn-outline-success" id="shareWhatsappBtn"><i class="fab fa-whatsapp me-2"></i>Share on WhatsApp</button>
+                        <button class="btn btn-primary px-4 ms-auto" id="closeInvoiceBtn">Proceed to Track Delivery <i class="fas fa-truck ms-1"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flipkart-style Delivery Tracker Modal -->
+    <div class="modal fade" id="trackerModal" data-bs-backdrop="static" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="fas fa-truck-fast me-2"></i>Order Tracker</h5>
+                    <button type="button" class="btn-close btn-close-white" id="closeTrackerIconBtn"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <div class="text-center mb-4">
+                        <div class="badge bg-success py-2 px-3 fs-6">Estimated Delivery: <span id="trackEstDate">23 Jun 2026</span></div>
+                    </div>
+
+                    <!-- Delivery Stepper -->
+                    <div class="delivery-stepper mb-5">
+                        <div class="step active">
+                            <div class="step-icon"><i class="fas fa-check"></i></div>
+                            <div class="step-label">
+                                <h6 class="mb-0 fw-bold">Order Confirmed</h6>
+                                <small class="text-muted">Order received & verified</small>
+                            </div>
+                        </div>
+                        <div class="step active">
+                            <div class="step-icon"><i class="fas fa-box-open"></i></div>
+                            <div class="step-label">
+                                <h6 class="mb-0 fw-bold">Packed</h6>
+                                <small class="text-muted">Handpicked & packed at the farm</small>
+                            </div>
+                        </div>
+                        <div class="step active">
+                            <div class="step-icon-animated"><i class="fas fa-truck"></i></div>
+                            <div class="step-label">
+                                <h6 class="mb-0 fw-bold">In Transit</h6>
+                                <small class="text-success">On the way to hub</small>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon"><i class="fas fa-house-chimney"></i></div>
+                            <div class="step-label">
+                                <h6 class="mb-0 fw-bold">Delivered</h6>
+                                <small class="text-muted">Expected at your home</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tracker Info Details -->
+                    <div class="card bg-light border-0 rounded shadow-sm mb-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold border-bottom pb-2 mb-3"><i class="fas fa-circle-info me-2 text-success"></i>Delivery Details</h6>
+                            <p class="mb-2"><strong>Customer Name:</strong> <span id="trackName">Aravinth Raj</span></p>
+                            <p class="mb-2"><strong>Expected Time:</strong> <span id="trackTime">10:00 AM - 6:00 PM</span></p>
+                            <p class="mb-0"><strong>Delivery Address:</strong> <span id="trackAddress">No. 12, Agro Street, Near Landmark</span></p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-success w-100 py-2 fw-bold" id="closeTrackerBtn">Close & Continue Shopping <i class="fas fa-cart-shopping ms-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- html2pdf library for PDF generating -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>const STATIC_URL_BASE = "{{ url_for('static', filename='') }}";</script>
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.5"></script>
+</body>
+
+</html>

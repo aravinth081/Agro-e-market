@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary: #1E5128;        /* Premium Forest Green */
+    --primary-light: #4E9F3D;  /* Vibrant Organic Green */
+    --secondary: #D8B257;      /* Warm Harvest Gold */
+    --accent: #E63946;         /* Alert Accent */
+    --light: #F6FBF4;          /* Soft Organic White */
+    --dark: #111E15;           /* Deep Charcoal Green */
+    --card-bg: #ffffff;
+    --font-sans: 'Inter', sans-serif;
+    --font-title: 'Outfit', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.navbar {
+    background: rgba(17, 30, 21, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-family: var(--font-title);
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: white !important;
+}
+
+.nav-link {
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-link i {
+    font-size: 1rem;
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover i {
+    transform: scale(1.1) translateY(-1px);
+}
+
+.nav-link:hover {
+    color: white !important;
+    background: rgba(78, 159, 61, 0.15);
+    box-shadow: 0 4px 12px rgba(78, 159, 61, 0.1);
+}
+
+.nav-link.active {
+    color: white !important;
+    background: var(--primary-light);
+    box-shadow: 0 4px 15px rgba(78, 159, 61, 0.3);
+}
+
+.hero-section {
+    position: relative;
+    background: radial-gradient(circle at 0% 0%, rgba(78, 159, 61, 0.2), transparent 45%),
+                radial-gradient(circle at 100% 100%, rgba(218, 178, 87, 0.12), transparent 45%),
+                linear-gradient(135deg, #111E15 0%, #1C3524 100%);
+    color: white;
+    padding: 7rem 0 5rem 0;
+    margin-bottom: 0;
+    border-radius: 0 0 40px 40px;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(78, 159, 61, 0.05), transparent 50%);
+    animation: pulse-bg 8s infinite alternate;
+}
+
+@keyframes pulse-bg {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.08); }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(78, 159, 61, 0.18);
+    border: 1px solid rgba(78, 159, 61, 0.3);
+    color: #9DDF8C;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+    animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 40%, #A4E99B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lead {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    border: none;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78, 159, 61, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 159, 61, 0.4);
+    background: linear-gradient(135deg, #59B348, #246231);
+}
+
+.btn-outline-light {
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* Value Props Grid */
+.value-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(78, 159, 61, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(17, 30, 21, 0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--primary-light);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(17, 30, 21, 0.06);
+    border-color: rgba(78, 159, 61, 0.2);
+}
+
+.value-card:hover::before {
+    opacity: 1;
+}
+
+.value-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: rgba(78, 159, 61, 0.08);
+    color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    background: var(--primary-light);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.value-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.value-text {
+    color: #55665b;
+    font-size: 0.95rem;
+}
+
+/* Products and E-Market Section */
+.product-card {
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+    overflow: hidden;
+    background: white;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(17, 30, 21, 0.08);
+    border-color: rgba(78, 159, 61, 0.15);
+}
+
+.product-card img {
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--dark);
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #C09B42;
+    border-color: #C09B42;
+    color: var(--dark);
+}
+
+.btn-success {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.btn-success:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Footer Styling */
+footer {
+    background: #111E15;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 3rem 0;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* Modals styling */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: #111E15;
+    color: white;
+    border-bottom: none;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* Flipkart-style Delivery Stepper */
+.delivery-stepper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    position: relative;
+    padding-left: 2.8rem;
+    margin: 1.5rem 0;
+}
+
+.delivery-stepper::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 10px;
+    bottom: 10px;
+    width: 4px;
+    background: #e2e8f0;
+    z-index: 1;
+}
+
+.delivery-stepper::after {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 10px;
+    height: 66%; /* 3 active states: Ordered -> Packed -> Transit (active path) */
+    width: 4px;
+    background: var(--primary-light);
+    z-index: 2;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 3;
+}
+
+.step-icon {
+    position: absolute;
+    left: -2.8rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+}
+
+.step-icon-animated {
+    position: absolute;
+    left: -2.8rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border: 3px solid white;
+    z-index: 4;
+    animation: pulse-step 2s infinite;
+}
+
+@keyframes pulse-step {
+    0% { box-shadow: 0 0 0 0 rgba(78, 159, 61, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(78, 159, 61, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(78, 159, 61, 0); }
+}
+
+.step.active .step-icon {
+    background: var(--primary-light);
+    color: white;
+}
+
+.step-label {
+    padding-left: 0.8rem;
+}
+
+.step-label h6 {
+    color: var(--dark);
+    margin-bottom: 0.2rem;
+}
+
+.step.active .step-label h6 {
+    color: var(--primary-light);
+}
+
+#payOnlineBtn, #payCodBtn {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border-width: 2px;
+}
+
+#payOnlineBtn:hover {
+    background-color: rgba(78, 159, 61, 0.05);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+#payCodBtn:hover {
+    background-color: rgba(17, 30, 21, 0.03);
+    border-color: var(--dark);
+    transform: translateY(-2px);
+}
+
+#invoiceContent {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.alert-success {
+    background-color: rgba(78, 159, 61, 0.1);
+    border-color: rgba(78, 159, 61, 0.15);
+    color: var(--primary);
+}
+
+/* Redesigned 2-Column Hero & Image elements */
+.hero-image-container {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+}
+
+.hero-image-container img {
+    border-radius: 24px !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+.hero-image-container:hover img {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 50px rgba(78, 159, 61, 0.2) !important;
+}
+
+.floating-glass-card {
+    position: absolute;
+    bottom: -15px;
+    left: -35px;
+    background: rgba(17, 30, 21, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 250px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18) !important;
+    animation: float 4s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Accordion FAQ Styling */
+.accordion-item {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.25s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 8px 20px rgba(78, 159, 61, 0.04) !important;
+    border-color: rgba(78, 159, 61, 0.15) !important;
+}
+
+.accordion-button {
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 1.25rem 1.5rem;
+    color: var(--primary) !important;
+    background-color: transparent !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(78, 159, 61, 0.03) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button::after {
+    filter: sepia(100%) hue-rotate(80deg) saturate(300%);
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Custom Soft Colors for Benefit Card Icons */
+.value-card:nth-child(1) .value-icon {
+    background: rgba(78, 159, 61, 0.1);
+    color: var(--primary-light);
+}
+.value-card:nth-child(2) .value-icon {
+    background: rgba(218, 178, 87, 0.12);
+    color: #c9962a;
+}
+.value-card:nth-child(3) .value-icon {
+    background: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+}
