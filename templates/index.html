@@ -11,6 +11,80 @@
 </head>
 
 <body>
+    <!-- Authentication Container -->
+    <div id="auth-container" class="container-fluid d-none">
+        <div class="row min-vh-100 align-items-center justify-content-center px-3 auth-bg">
+            <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+                
+                <!-- Registration Card -->
+                <div id="register-card" class="auth-card p-4 p-sm-5 shadow-lg rounded-4 text-center">
+                    <div class="mb-4">
+                        <div class="auth-logo-icon mb-2">
+                            <i class="fas fa-seedling text-success fa-3x"></i>
+                        </div>
+                        <h2 class="fw-bold text-white">Create Account</h2>
+                        <p class="text-white-50 small">Join Agro E-Market to order farm fresh vegetables</p>
+                    </div>
+                    <form id="register-form" autocomplete="off">
+                        <div class="mb-3 text-start">
+                            <label for="reg-username" class="form-label text-white-50 small fw-bold">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark-green border-0 text-white-50"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control bg-dark-green border-0 text-white" id="reg-username" placeholder="Enter username" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label for="reg-password" class="form-label text-white-50 small fw-bold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark-green border-0 text-white-50"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control bg-dark-green border-0 text-white" id="reg-password" placeholder="Create password" required>
+                            </div>
+                        </div>
+                        <div class="mb-4 text-start">
+                            <label for="reg-confirm-password" class="form-label text-white-50 small fw-bold">Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark-green border-0 text-white-50"><i class="fas fa-shield-halved"></i></span>
+                                <input type="password" class="form-control bg-dark-green border-0 text-white" id="reg-confirm-password" placeholder="Confirm password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 py-3 mb-3 fw-bold"><i class="fas fa-user-plus me-2"></i>Register</button>
+                        <p class="text-white-50 mb-0 small">Already have an account? <a href="#" id="to-login-link" class="text-success-light fw-bold text-decoration-none">Sign In</a></p>
+                    </form>
+                </div>
+
+                <!-- Login Card -->
+                <div id="login-card" class="auth-card p-4 p-sm-5 shadow-lg rounded-4 text-center d-none">
+                    <div class="mb-4">
+                        <div class="auth-logo-icon mb-2">
+                            <i class="fas fa-seedling text-success fa-3x"></i>
+                        </div>
+                        <h2 class="fw-bold text-white">Welcome Back</h2>
+                        <p class="text-white-50 small">Log in to your account to continue shopping</p>
+                    </div>
+                    <form id="login-form" autocomplete="off">
+                        <div class="mb-3 text-start">
+                            <label for="login-username" class="form-label text-white-50 small fw-bold">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark-green border-0 text-white-50"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control bg-dark-green border-0 text-white" id="login-username" placeholder="Enter username" required>
+                            </div>
+                        </div>
+                        <div class="mb-4 text-start">
+                            <label for="login-password" class="form-label text-white-50 small fw-bold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark-green border-0 text-white-50"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control bg-dark-green border-0 text-white" id="login-password" placeholder="Enter password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 py-3 mb-3 fw-bold"><i class="fas fa-sign-in-alt me-2"></i>Sign In</button>
+                        <p class="text-white-50 mb-0 small">Don't have an account? <a href="#" id="to-register-link" class="text-success-light fw-bold text-decoration-none">Register</a></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#" data-section="home"><i class="fas fa-seedling me-2 text-success"></i>Agro
@@ -19,8 +93,7 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#" data-section="home"><i class="fas fa-house me-2"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-section="agro-market"><i class="fas fa-basket-shopping me-2"></i>E-Market</a></li>
+                    <li class="nav-item" id="nav-logout-item"><a class="nav-link text-danger" href="#" id="logout-btn" title="Logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -37,7 +110,11 @@
                             </div>
                             <h1 class="display-3 fw-bold mb-3 text-white">Fresh Fruits & <span class="text-gradient">Vegetables</span></h1>
                             <p class="lead mb-4 text-white-50">Direct from farm to your kitchen. Get premium quality agricultural produce at unbeatable wholesale prices with super-fast delivery all across India.</p>
-
+                            <div class="mt-4">
+                                <button class="btn btn-primary btn-lg shadow-lg" id="explore-btn">
+                                    <i class="fas fa-basket-shopping me-2"></i>Explore Products
+                                </button>
+                            </div>
                         </div>
                         <div class="col-lg-5 text-center position-relative d-none d-lg-block">
                             <div class="hero-image-container">
@@ -153,7 +230,7 @@
 
     <footer class="text-center">
         <div class="container">
-            <p>&copy; 2025 Agro E-Market. All Rights Reserved.</p>
+            <p>&copy; 2026 Agro E-Market. All Rights Reserved.</p>
         </div>
     </footer>
 

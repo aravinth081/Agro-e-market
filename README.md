@@ -653,5 +653,6 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
 ---
 
 <p align="center">
-  <b>Agro Medknow Nexus</b> • Sourced locally, consumed fresh. © 2025.
+  <b>Agro Medknow Nexus</b> • Sourced locally, consumed fresh. © 2026.
 </p>
+

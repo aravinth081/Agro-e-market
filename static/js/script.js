@@ -1,9 +1,128 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Authentication Elements & Logic ---
+    const authContainer = document.getElementById('auth-container');
+    const registerCard = document.getElementById('register-card');
+    const loginCard = document.getElementById('login-card');
+    const registerForm = document.getElementById('register-form');
+    const loginForm = document.getElementById('login-form');
+    const logoutBtn = document.getElementById('logout-btn');
+    const toLoginLink = document.getElementById('to-login-link');
+    const toRegisterLink = document.getElementById('to-register-link');
+
+    const navbar = document.querySelector('.navbar');
+    const mainContent = document.querySelector('main');
+    const footer = document.querySelector('footer');
+
+    function checkAuthStatus() {
+        const isLoggedIn = localStorage.getItem('agro_is_logged_in') === 'true';
+        const hasUser = localStorage.getItem('agro_user') !== null;
+
+        if (isLoggedIn) {
+            authContainer.classList.add('d-none');
+            navbar.classList.remove('d-none');
+            mainContent.classList.remove('d-none');
+            footer.classList.remove('d-none');
+            // By default, show section home
+            showSection('home');
+        } else {
+            authContainer.classList.remove('d-none');
+            navbar.classList.add('d-none');
+            mainContent.classList.add('d-none');
+            footer.classList.add('d-none');
+
+            if (hasUser) {
+                loginCard.classList.remove('d-none');
+                registerCard.classList.add('d-none');
+            } else {
+                registerCard.classList.remove('d-none');
+                loginCard.classList.add('d-none');
+            }
+        }
+    }
+
+    // Toggle links
+    if (toLoginLink) {
+        toLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerCard.classList.add('d-none');
+            loginCard.classList.remove('d-none');
+        });
+    }
+
+    if (toRegisterLink) {
+        toRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginCard.classList.add('d-none');
+            registerCard.classList.remove('d-none');
+        });
+    }
+
+    // Handle registration
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('reg-username').value.trim();
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Save to localStorage
+            const userData = { username, password };
+            localStorage.setItem('agro_user', JSON.stringify(userData));
+            
+            alert("Registration successful! Please sign in.");
+            registerForm.reset();
+            
+            // Switch to login card
+            registerCard.classList.add('d-none');
+            loginCard.classList.remove('d-none');
+        });
+    }
+
+    // Handle login
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            const storedUserRaw = localStorage.getItem('agro_user');
+            if (!storedUserRaw) {
+                alert("No user registered! Please register first.");
+                loginCard.classList.add('d-none');
+                registerCard.classList.remove('d-none');
+                return;
+            }
+
+            const storedUser = JSON.parse(storedUserRaw);
+            if (storedUser.username === username && storedUser.password === password) {
+                localStorage.setItem('agro_is_logged_in', 'true');
+                checkAuthStatus();
+            } else {
+                alert("Invalid username or password!");
+            }
+        });
+    }
+
+    // Handle logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('agro_is_logged_in');
+            checkAuthStatus();
+        });
+    }
+
     // --- Data for Dynamic Content ---
     const modules = [
         { title: 'Agro E-Market', description: 'Direct from farmers to you.', icon: 'fa-store', section: 'agro-market', colorClass: 'agro-market' }
     ];
+
 
     const products = [
         // Original 8
@@ -114,6 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const getStartedBtn = document.getElementById('getStartedBtn');
     if (getStartedBtn) {
         getStartedBtn.addEventListener('click', () => {
+            showSection('agro-market');
+        });
+    }
+
+    const exploreBtn = document.getElementById('explore-btn');
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', () => {
             showSection('agro-market');
         });
     }
@@ -312,4 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }).join('')}<li class="list-group-item d-flex justify-content-between active"><strong>Total</strong><strong>₹${total.toFixed(2)}</strong></li></ul>`;
         }
     }
+
+    // Run initial auth status check
+    checkAuthStatus();
 });
